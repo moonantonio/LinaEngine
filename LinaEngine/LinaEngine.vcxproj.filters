@@ -234,6 +234,9 @@
     <ClCompile Include="src\Rendering\Lina_XRenderWindow.cpp">
       <Filter>Source Files\Rendering</Filter>
     </ClCompile>
+    <ClCompile Include="src\Rendering\Lina_XDebugWindow.cpp">
+      <Filter>Source Files\Rendering</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Utility\stb_image.h">
@@ -396,6 +399,9 @@
       <Filter>Header Files\Rendering</Filter>
     </ClInclude>
     <ClInclude Include="inc\Rendering\Lina_XRenderWindow.hpp">
+      <Filter>Header Files\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Rendering\Lina_XDebugWindow.hpp">
       <Filter>Header Files\Rendering</Filter>
     </ClInclude>
   </ItemGroup>

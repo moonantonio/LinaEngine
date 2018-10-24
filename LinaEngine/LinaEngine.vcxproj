@@ -182,6 +182,7 @@
     <ClCompile Include="src\Math\Lina_Quaternion.cpp" />
     <ClCompile Include="src\Math\Lina_Vector2F.cpp" />
     <ClCompile Include="src\Math\Lina_Vector3F.cpp" />
+    <ClCompile Include="src\Rendering\Lina_XDebugWindow.cpp" />
     <ClCompile Include="src\Rendering\Lina_XRenderWindow.cpp" />
     <ClCompile Include="src\Rendering\Lina_XWindow.cpp" />
     <ClCompile Include="src\Rendering\Shaders\Lina_BasicShader.cpp" />
@@ -264,6 +265,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="inc\Rendering\Lina_XDebugWindow.hpp" />
     <ClInclude Include="inc\Rendering\Lina_XRenderWindow.hpp" />
     <ClInclude Include="inc\Rendering\Lina_XWindow.hpp" />
     <ClInclude Include="inc\Rendering\Shaders\Lina_BasicShader.hpp">
