@@ -20,39 +20,35 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 
 #pragma once
 
-#ifndef Lina_AudioEngine_HPP
-#define Lina_AudioEngine_HPP
+#include "pch.h"
+#include "Audio/Lina_Sound.hpp"
 
-#include <SDL2/SDL_mixer.h>
-
-#include <Audio/Lina_Sound.hpp>
-#include <Core/Lina_ObjectHandler.hpp>
-
-class Lina_AudioEngine
+Lina_Sound::Lina_Sound()
 {
-public:
-	Lina_AudioEngine();
-	~Lina_AudioEngine();
+	m_Chunk = nullptr;
+}
 
-	void Init();
-	void LoadMusic(const std::string file);
-	void LoadAudioChunk(const std::string file);
-	void PlayAudioChunk();
-	void PlayMusic();
-	void HaltMusic();
-	void PauseMusic();
-	void ResumeMusic();
-	void CleanUp();
+Lina_Sound::~Lina_Sound()
+{
+}
 
-	//Lina_ObjectHandler eventHandler;
+void Lina_Sound::LoadAudioChunk(const std::string file)
+{
+	std::string path = "./Resources/Sounds/" + file;
 
-private:
-	Mix_Chunk* m_Chunk;
-	Mix_Music* m_Music;
-	Lina_Sound sound;
+	m_Chunk = Mix_LoadWAV(path.c_str());
+}
 
-	bool b_IsMusicPlaying;
-	bool b_IsMusicPaused;
-};
+void Lina_Sound::PlayAudioChunk()
+{
+	Mix_PlayChannel(-1, m_Chunk, 0);
+}
 
-#endif
+void Lina_Sound::CleanAudioChunk()
+{
+	if (m_Chunk != nullptr)
+	{
+		Mix_FreeChunk(m_Chunk);
+		m_Chunk = nullptr;
+	}
+}

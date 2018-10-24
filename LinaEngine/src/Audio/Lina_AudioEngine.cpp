@@ -51,14 +51,17 @@ void Lina_AudioEngine::LoadMusic(const std::string file)
 
 void Lina_AudioEngine::LoadAudioChunk(const std::string file)
 {
-	std::string path = "./Resources/Sounds/" + file;
+	//std::string path = "./Resources/Sounds/" + file;
 
-	m_Chunk = Mix_LoadWAV(path.c_str());
+	//m_Chunk = Mix_LoadWAV(path.c_str());
+
+	sound.LoadAudioChunk(file);
 }
 
 void Lina_AudioEngine::PlayAudioChunk()
 {
-	Mix_PlayChannel(-1, m_Chunk, 0);
+	//Mix_PlayChannel(-1, m_Chunk, 0);
+	sound.PlayAudioChunk();
 }
 
 void Lina_AudioEngine::PlayMusic()
@@ -95,4 +98,9 @@ void Lina_AudioEngine::ResumeMusic()
 		Mix_ResumeMusic();
 		b_IsMusicPaused = false;
 	}
+}
+
+void Lina_AudioEngine::CleanUp()
+{
+	sound.CleanAudioChunk();
 }
