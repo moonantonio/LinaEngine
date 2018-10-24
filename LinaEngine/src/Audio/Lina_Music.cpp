@@ -18,38 +18,50 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 
 */
 
-#pragma once
-
-#ifndef Lina_AudioEngine_HPP
-#define Lina_AudioEngine_HPP
-
-#include <SDL2/SDL_mixer.h>
-
-#include <Audio/Lina_Sound.hpp>
+#include "pch.h"
 #include <Audio/Lina_Music.hpp>
-#include <Core/Lina_ObjectHandler.hpp>
 
-class Lina_AudioEngine
+Lina_Music::Lina_Music()
 {
-public:
-	Lina_AudioEngine();
-	~Lina_AudioEngine();
+	m_Music = nullptr;
+}
 
-	void Init();
-	void LoadMusic(const std::string file);
-	void LoadAudioChunk(const std::string file);
-	void PlayAudioChunk();
-	void PlayMusic();
-	void HaltMusic();
-	void PauseMusic();
-	void ResumeMusic();
-	void CleanUp();
+Lina_Music::~Lina_Music()
+{
+}
 
-	//Lina_ObjectHandler eventHandler;
+void Lina_Music::LoadMusic(std::string file)
+{
+	std::string path = "./Resources/Musics/" + file;
 
-private:
-	Lina_Sound* sound;
-	Lina_Music* music;
-};
+	m_Music = Mix_LoadMUS(path.c_str());
+}
 
-#endif
+void Lina_Music::PlayMusic()
+{
+	Mix_PlayMusic(m_Music, -1);
+}
+
+void Lina_Music::HaltMusic()
+{
+	Mix_HaltMusic();
+}
+
+void Lina_Music::ResumeMusic()
+{
+	Mix_ResumeMusic();
+}
+
+void Lina_Music::PauseMusic()
+{
+	Mix_PauseMusic();
+}
+
+void Lina_Music::CleanMusic()
+{
+	if (m_Music != nullptr)
+	{
+		Mix_FreeMusic(m_Music);
+		m_Music = nullptr;
+	}
+}

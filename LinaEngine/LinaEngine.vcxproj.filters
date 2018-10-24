@@ -240,6 +240,9 @@
     <ClCompile Include="src\Audio\Lina_Sound.cpp">
       <Filter>Source Files\Audio</Filter>
     </ClCompile>
+    <ClCompile Include="src\Audio\Lina_Music.cpp">
+      <Filter>Source Files\Audio</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Utility\stb_image.h">
@@ -402,6 +405,9 @@
       <Filter>Header Files\Audio</Filter>
     </ClInclude>
     <ClInclude Include="inc\Audio\Lina_Sound.hpp">
+      <Filter>Header Files\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Audio\Lina_Music.hpp">
       <Filter>Header Files\Audio</Filter>
     </ClInclude>
   </ItemGroup>

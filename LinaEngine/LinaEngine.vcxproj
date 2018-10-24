@@ -167,6 +167,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\Audio\Lina_AudioEngine.cpp" />
+    <ClCompile Include="src\Audio\Lina_Music.cpp" />
     <ClCompile Include="src\Audio\Lina_Sound.cpp" />
     <ClCompile Include="src\ECS\Lina_ECSComponent.cpp" />
     <ClCompile Include="src\Rendering\Lights\Lina_DirectionalLight.cpp" />
@@ -217,6 +218,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="inc\Audio\Lina_AudioEngine.hpp" />
+    <ClInclude Include="inc\Audio\Lina_Music.hpp" />
     <ClInclude Include="inc\Audio\Lina_Sound.hpp" />
     <ClInclude Include="inc\Core\Lina_EngineInstances.hpp">
       <SubType>

@@ -23,19 +23,21 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 
 Lina_AudioEngine::Lina_AudioEngine()
 {
-	m_Chunk = nullptr;
-	m_Music = nullptr;
-
-	b_IsMusicPlaying = false;
-	b_IsMusicPaused = false;
+	sound = new Lina_Sound;
+	music = new Lina_Music;
 }
 
 Lina_AudioEngine::~Lina_AudioEngine()
 {
+	Lina_Console cons = Lina_Console();
+	cons.AddConsoleMsg("Audio engine deinitialized.", Lina_Console::MsgType::Deinitialization, "Audio Engine");
 }
 
 void Lina_AudioEngine::Init()
 {
+	Lina_Console cons = Lina_Console();
+	cons.AddConsoleMsg("Audio engine initialized.", Lina_Console::MsgType::Initialization, "Audio Engine");
+
 	if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 1024) == -1)
 	{
 		std::cout << "wtf";
@@ -44,9 +46,11 @@ void Lina_AudioEngine::Init()
 
 void Lina_AudioEngine::LoadMusic(const std::string file)
 {
-	std::string path = "./Resources/Musics/" + file;
+	//std::string path = "./Resources/Musics/" + file;
 
-	m_Music = Mix_LoadMUS(path.c_str());
+	//m_Music = Mix_LoadMUS(path.c_str());
+
+	music->LoadMusic(file);
 }
 
 void Lina_AudioEngine::LoadAudioChunk(const std::string file)
@@ -55,52 +59,39 @@ void Lina_AudioEngine::LoadAudioChunk(const std::string file)
 
 	//m_Chunk = Mix_LoadWAV(path.c_str());
 
-	sound.LoadAudioChunk(file);
+	sound->LoadAudioChunk(file);
 }
 
 void Lina_AudioEngine::PlayAudioChunk()
 {
-	//Mix_PlayChannel(-1, m_Chunk, 0);
-	sound.PlayAudioChunk();
+	sound->PlayAudioChunk();
 }
 
 void Lina_AudioEngine::PlayMusic()
 {
-	if (b_IsMusicPlaying == false)
-	{
-		Mix_PlayMusic(m_Music, -1);
-		b_IsMusicPlaying = true;
-	}
+	music->PlayMusic();
 }
 
 void Lina_AudioEngine::HaltMusic()
 {
-	if (b_IsMusicPlaying == true)
-	{
-		Mix_HaltMusic();
-		b_IsMusicPlaying = false;
-	}
+	music->HaltMusic();
 }
 
 void Lina_AudioEngine::PauseMusic()
 {
-	if (b_IsMusicPlaying == true)
-	{
-		Mix_PauseMusic();
-		b_IsMusicPaused = true;
-	}
+	music->PauseMusic();
 }
 
 void Lina_AudioEngine::ResumeMusic()
 {
-	if (b_IsMusicPaused == true)
-	{
-		Mix_ResumeMusic();
-		b_IsMusicPaused = false;
-	}
+	music->ResumeMusic();
 }
 
 void Lina_AudioEngine::CleanUp()
 {
-	sound.CleanAudioChunk();
+	sound->CleanAudioChunk();
+	music->CleanMusic();
+
+	delete sound;
+	delete music;
 }

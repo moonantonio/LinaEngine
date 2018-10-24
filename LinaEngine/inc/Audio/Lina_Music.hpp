@@ -20,36 +20,31 @@ WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN 
 
 #pragma once
 
-#ifndef Lina_AudioEngine_HPP
-#define Lina_AudioEngine_HPP
+#ifndef Lina_Music_HPP
+#define Lina_Music_HPP
 
 #include <SDL2/SDL_mixer.h>
 
-#include <Audio/Lina_Sound.hpp>
-#include <Audio/Lina_Music.hpp>
-#include <Core/Lina_ObjectHandler.hpp>
+#include <string>
 
-class Lina_AudioEngine
+class Lina_Music
 {
 public:
-	Lina_AudioEngine();
-	~Lina_AudioEngine();
 
-	void Init();
-	void LoadMusic(const std::string file);
-	void LoadAudioChunk(const std::string file);
-	void PlayAudioChunk();
+	Lina_Music();
+	~Lina_Music();
+
+	void LoadMusic(std::string file);
 	void PlayMusic();
 	void HaltMusic();
-	void PauseMusic();
 	void ResumeMusic();
-	void CleanUp();
-
-	//Lina_ObjectHandler eventHandler;
+	void PauseMusic();
+	void CleanMusic();
 
 private:
-	Lina_Sound* sound;
-	Lina_Music* music;
+
+	Mix_Music* m_Music;
+
 };
 
 #endif
