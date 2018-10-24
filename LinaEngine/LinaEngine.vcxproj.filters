@@ -103,6 +103,12 @@
     <Filter Include="Header Files\DataStructures">
       <UniqueIdentifier>{944da66c-ca40-43ef-a81d-ef6da026deed}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Audio">
+      <UniqueIdentifier>{ff778dfd-cfe7-4006-8024-960d9e9ca806}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Audio">
+      <UniqueIdentifier>{c7ac4355-7869-40b2-93cc-9be8a6358b31}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Rendering\Lina_RenderingEngine.cpp">
@@ -227,6 +233,9 @@
     </ClCompile>
     <ClCompile Include="src\ECS\Lina_ECSComponent.cpp">
       <Filter>Source Files\Entity Component System</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Audio\Lina_AudioEngine.cpp">
+      <Filter>Source Files\Audio</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -385,6 +394,9 @@
     </ClInclude>
     <ClInclude Include="inc\ECS\Lina_ECS.hpp">
       <Filter>Header Files\Entity Component System</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Audio\Lina_AudioEngine.hpp">
+      <Filter>Header Files\Audio</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -166,6 +166,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Audio\Lina_AudioEngine.cpp" />
     <ClCompile Include="src\ECS\Lina_ECSComponent.cpp" />
     <ClCompile Include="src\Rendering\Lights\Lina_DirectionalLight.cpp" />
     <ClCompile Include="src\Rendering\Lights\Lina_Spotlight.cpp" />
@@ -214,6 +215,7 @@
     <ClCompile Include="TestGame\src\Lina_TestScene1.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="inc\Audio\Lina_AudioEngine.hpp" />
     <ClInclude Include="inc\Core\Lina_EngineInstances.hpp">
       <SubType>
       </SubType>
