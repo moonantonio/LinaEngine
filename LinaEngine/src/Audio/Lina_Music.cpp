@@ -34,26 +34,31 @@ void Lina_Music::LoadMusic(std::string file)
 {
 	std::string path = "./Resources/Musics/" + file;
 
+	//While SDL can load musics as a sound file, LoadMUS uses a data structure that is created for this task.
 	m_Music = Mix_LoadMUS(path.c_str());
 }
 
 void Lina_Music::PlayMusic()
 {
+	//If second paramter passed as -1 the music will looped until it paused or halted.
 	Mix_PlayMusic(m_Music, -1);
 }
 
 void Lina_Music::HaltMusic()
 {
+	//This function halts the music if the music is playing.
 	Mix_HaltMusic();
 }
 
 void Lina_Music::ResumeMusic()
 {
+	//This function can be called only if the music is paused. If music is halted it means it resetted, use PlayMusic in that case.
 	Mix_ResumeMusic();
 }
 
 void Lina_Music::PauseMusic()
 {
+	//If the music is playing, it can be paused with this function.
 	Mix_PauseMusic();
 }
 

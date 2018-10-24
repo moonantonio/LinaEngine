@@ -36,11 +36,15 @@ void Lina_Sound::LoadAudioChunk(const std::string file)
 {
 	std::string path = "./Resources/Sounds/" + file;
 
+	//While the load function has the WAV keyword at the end, it can also load WAVE, OGG, MIDI and MP3.
 	m_Chunk = Mix_LoadWAV(path.c_str());
 }
 
 void Lina_Sound::PlayAudioChunk()
 {
+	//Mixer function for playing sound.
+	//There are 8 total sound channels in SDL_mixer, if we choose -1, SDL will use appropriate channel for the sound we want to played.
+	//Second parameter is our actual sound data. Third parameter is for declaring how many times the sound will be played in a single call.
 	Mix_PlayChannel(-1, m_Chunk, 0);
 }
 

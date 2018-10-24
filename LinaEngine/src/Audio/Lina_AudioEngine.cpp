@@ -38,7 +38,11 @@ void Lina_AudioEngine::Init()
 	Lina_Console cons = Lina_Console();
 	cons.AddConsoleMsg("Audio engine initialized.", Lina_Console::MsgType::Initialization, "Audio Engine");
 
-	if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 1024) == -1)
+	//Initialize the mixer.
+	//First parameter is frequency. Right now leave it as 22050 which is ok for the moment.
+	//Second paramter is sound format.
+	//Third parameter is indicates how many channels will be used. 2 for stereo sounds.
+	if (Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 2048) == -1)
 	{
 		std::cout << "wtf";
 	}
@@ -46,19 +50,11 @@ void Lina_AudioEngine::Init()
 
 void Lina_AudioEngine::LoadMusic(const std::string file)
 {
-	//std::string path = "./Resources/Musics/" + file;
-
-	//m_Music = Mix_LoadMUS(path.c_str());
-
 	music->LoadMusic(file);
 }
 
 void Lina_AudioEngine::LoadAudioChunk(const std::string file)
 {
-	//std::string path = "./Resources/Sounds/" + file;
-
-	//m_Chunk = Mix_LoadWAV(path.c_str());
-
 	sound->LoadAudioChunk(file);
 }
 
@@ -91,6 +87,9 @@ void Lina_AudioEngine::CleanUp()
 {
 	sound->CleanAudioChunk();
 	music->CleanMusic();
+
+	//Deinitialize the mixer.
+	Mix_CloseAudio();
 
 	delete sound;
 	delete music;
