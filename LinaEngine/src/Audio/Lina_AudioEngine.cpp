@@ -25,6 +25,9 @@ Lina_AudioEngine::Lina_AudioEngine()
 {
 	m_Chunk = nullptr;
 	m_Music = nullptr;
+
+	b_IsMusicPlaying = false;
+	b_IsMusicPaused = false;
 }
 
 Lina_AudioEngine::~Lina_AudioEngine()
@@ -60,5 +63,36 @@ void Lina_AudioEngine::PlayAudioChunk()
 
 void Lina_AudioEngine::PlayMusic()
 {
-	Mix_PlayMusic(m_Music, -1);
+	if (b_IsMusicPlaying == false)
+	{
+		Mix_PlayMusic(m_Music, -1);
+		b_IsMusicPlaying = true;
+	}
+}
+
+void Lina_AudioEngine::HaltMusic()
+{
+	if (b_IsMusicPlaying == true)
+	{
+		Mix_HaltMusic();
+		b_IsMusicPlaying = false;
+	}
+}
+
+void Lina_AudioEngine::PauseMusic()
+{
+	if (b_IsMusicPlaying == true)
+	{
+		Mix_PauseMusic();
+		b_IsMusicPaused = true;
+	}
+}
+
+void Lina_AudioEngine::ResumeMusic()
+{
+	if (b_IsMusicPaused == true)
+	{
+		Mix_ResumeMusic();
+		b_IsMusicPaused = false;
+	}
 }

@@ -38,12 +38,18 @@ public:
 	void LoadAudioChunk(const std::string file);
 	void PlayAudioChunk();
 	void PlayMusic();
+	void HaltMusic();
+	void PauseMusic();
+	void ResumeMusic();
 
 	//Lina_ObjectHandler eventHandler;
 
 private:
 	Mix_Chunk* m_Chunk;
 	Mix_Music* m_Music;
+
+	bool b_IsMusicPlaying;
+	bool b_IsMusicPaused;
 };
 
 #endif
