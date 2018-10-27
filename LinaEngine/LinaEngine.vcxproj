@@ -166,7 +166,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Core\CopyLina_Main.cpp" />
     <ClCompile Include="src\ECS\Lina_ECSComponent.cpp" />
+    <ClCompile Include="src\Editor\Lina_EditorWindow.cpp" />
     <ClCompile Include="src\Rendering\Lights\Lina_DirectionalLight.cpp" />
     <ClCompile Include="src\Rendering\Lights\Lina_Spotlight.cpp" />
     <ClCompile Include="src\Rendering\Lights\Lina_PointLight.cpp" />
@@ -237,6 +239,7 @@
       <SubType>
       </SubType>
     </ClInclude>
+    <ClInclude Include="inc\Editor\Lina_EditorWindow.hpp" />
     <ClInclude Include="inc\Events\Lina_Actions.hpp">
       <SubType>
       </SubType>

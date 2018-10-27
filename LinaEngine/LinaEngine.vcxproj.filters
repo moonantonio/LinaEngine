@@ -103,6 +103,12 @@
     <Filter Include="Header Files\DataStructures">
       <UniqueIdentifier>{944da66c-ca40-43ef-a81d-ef6da026deed}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Editor">
+      <UniqueIdentifier>{80957fae-d304-40f2-9dd9-3f726a37ab2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Editor">
+      <UniqueIdentifier>{bb94c400-e277-4fcd-8e43-8f5d69ecc884}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Rendering\Lina_RenderingEngine.cpp">
@@ -236,6 +242,12 @@
     </ClCompile>
     <ClCompile Include="src\Rendering\Lina_XDebugWindow.cpp">
       <Filter>Source Files\Rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Editor\Lina_EditorWindow.cpp">
+      <Filter>Source Files\Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Core\CopyLina_Main.cpp">
+      <Filter>Source Files\Core</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -403,6 +415,9 @@
     </ClInclude>
     <ClInclude Include="inc\Rendering\Lina_XDebugWindow.hpp">
       <Filter>Header Files\Rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="inc\Editor\Lina_EditorWindow.hpp">
+      <Filter>Header Files\Editor</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
